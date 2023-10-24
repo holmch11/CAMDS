@@ -1,0 +1,12 @@
+[Unit]
+Description=camds start up
+After=network.target
+
+[Service]
+User=camds
+ExecStart=/home/camds/bin/start.sh
+StandardOutput=inherit
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target

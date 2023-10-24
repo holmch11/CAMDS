@@ -1,0 +1,11 @@
+[Unit]
+Description=sleepy pi power on signal and power off control
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/python3 -u /home/camds/bin/shutdowncheck.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
