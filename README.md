@@ -19,8 +19,10 @@ This project uses [Semantic Versioning](https://semver.org/) with Major:Minor:Pa
 file. Be sure to include/update the version level as appropriate based on the guidlines for Semantic Versioning and
 provide that information in the pull request so the project admin can appropriately tag the code for automated builds
 and testing.
-
-# Welcome
+# ARCHITECTURE
+The Basic setup of this system is a Raspberry PI HQ camera that takes a burst of 3 photos in RAW format, converts them to reduced size JPG and Rsyncs those files up to a connnected datalogging computer on the OOI mooring.  The RAW photos are stored with log files for removal upon recovery.  The Pi executes this upon start up and then shutsdown. 
+The timing of pictures is then controlled by Sleepy Pi turning on and off the Raspberry Pi (and camera).  In this version it is hard coded to 4 hours, Pi is turned on and then sleepy pi waits for the pi to shutdown before removing power. One vunerability in this system is if for some reason Sleepy Pi doesn't remove power from the Pi, it will not boot again and the battery will be drained.  Multiple layers of checks were created to prevent this including a timeout.  Sleepy pi then sets a new wake signal before going to sleep itself.  The sleepy pi can be woken up asyncronously with a wake pin going high, in this case that is wired to the datalogger (DCL) power pin for the CAMDS port.   
+# SETUP
 
 This wiki covers the software set up of a new OOI EA CAMDS underwater camera.  If creating a new camera unit it is possible to deploy from a brand new SD card however starting from a cloned SD card is **highly recommended**.  This is for two important reasons; 1) it is a lot less work, 2) the DCLs and your computer will recognize all the CAMDS units that are cloned as a single CAMDS when using ssh to connect.  If you have a new card in a unit it will give man in the middle attack warnings/errors if you already have connected to a different CAMDS unit.  This will require removal of any saved data from known hosts for 192.168.0.147 (CAMDS IP) before connecting, this can be avoided when all the units share a cloned set of cards.    
 
