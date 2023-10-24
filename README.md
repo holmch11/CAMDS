@@ -24,9 +24,11 @@ and testing.
 
 This wiki covers the software set up of a new OOI EA CAMDS underwater camera.  If creating a new camera unit it is possible to deploy from a brand new SD card however starting from a cloned SD card is **highly recommended**.  This is for two important reasons; 1) it is a lot less work, 2) the DCLs and your computer will recognize all the CAMDS units that are cloned as a single CAMDS when using ssh to connect.  If you have a new card in a unit it will give man in the middle attack warnings/errors if you already have connected to a different CAMDS unit.  This will require removal of any saved data from known hosts for 192.168.0.147 (CAMDS IP) before connecting, this can be avoided when all the units share a cloned set of cards.    
 
-[How to Start with Cloned Card](https://bitbucket.org/ooicgsn/ea_camds/wiki/Starting%20With%20Cloned%20SD%20card)
+[How to Start with Cloned Card](https://github.com/holmch11/CAMDS/blob/Production/Starting%20With%20Cloned%20SD%20card.md)
 
-[How to Start with a New Card](https://bitbucket.org/ooicgsn/ea_camds/wiki/Creating%20CAMDS%20from%20New%20SD%20card)
+
+[How to Start with a New Card](https://github.com/holmch11/CAMDS/blob/Production/Creating%20CAMDS%20from%20New%20SD%20card.md)
+
 
 ## Relevant Information and File Names
 Relevant controlled engineering drawings are on [OOI Alfresco](https://alfresco.oceanobservatories.org/alfresco/faces/jsp/browse/browse.jsp)
